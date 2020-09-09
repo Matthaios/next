@@ -1,7 +1,11 @@
 import firebase from "firebase/app";
 import "firebase/firestore";
-
+import { useRouter } from "next/router";
 export default function Post({ post }) {
+  const router = useRouter();
+  if (router.isFallback) {
+    return <div>Loading...</div>;
+  }
   return <div className="container p-8 bg-blue-200">{post && post.title}</div>;
 }
 
@@ -36,7 +40,7 @@ export async function getStaticPaths() {
         id: post,
       },
     })),
-    fallback: false,
+    fallback: true,
   };
 }
 
