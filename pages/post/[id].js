@@ -62,12 +62,14 @@ export async function getStaticProps({ params }) {
     if (!doc.exists) {
       return {
         props: { posts: null },
+        revalidate: 1,
       };
     } else {
       return {
         props: {
           post: Object.assign({}, doc.data()),
         },
+        revalidate: 1,
       };
     }
   } catch (error) {
