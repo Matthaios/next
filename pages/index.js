@@ -1,5 +1,5 @@
-import Head from 'next/head'
-
+import Head from "next/head";
+import Link from "next/link";
 export default function Home() {
   return (
     <div className="container">
@@ -10,7 +10,10 @@ export default function Home() {
 
       <main>
         <h1 className="title">
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          Welcome to{" "}
+          <Link href="/post">
+            <a>First post</a>
+          </Link>
         </h1>
 
         <p className="description">
@@ -54,7 +57,7 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
+          Powered by{" "}
           <img src="/vercel.svg" alt="Vercel Logo" className="logo" />
         </a>
       </footer>
@@ -205,5 +208,5 @@ export default function Home() {
         }
       `}</style>
     </div>
-  )
+  );
 }
